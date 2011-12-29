@@ -1,0 +1,23 @@
+                   Logging code Cleanup plugin for Eclipse
+
+This is an extension of the Eclipse Clean Ups which detects invocations of the
+logging methods with compound arguments (i.e. arguments that require computation
+before the method call) and prefixes them with corresponding if statements.
+
+For example, the code:
+    log.debug("Me: " + this) 
+
+is replaced with:
+    if (log.isDebugEnabled()) log.debug("Me: " + this)
+
+
+The following logging frameworks are supported:
+
+Java Util Logging
+Log4j
+SLF4J
+
+The plugin provides an extension point which allows to add support 
+for other frameworks.
+
+Eclipse update site: http://dl.bintray.com/aap/lce/

@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="logFinder" name="Log Finder" schema="schema/logFinder.exsd"/>
+   <extension
+         point="org.eclipse.jdt.ui.cleanUps">
+
+      <cleanUp
+            class="me.aap.lce.LogCleanUp"
+            id="me.aap.lce" />
+
+      <cleanUpConfigurationUI
+            class="me.aap.lce.LogCleanUpConfigurationUI"
+            name="Logging"
+            cleanUpKind="saveAction" />
+      <cleanUpConfigurationUI
+            class="me.aap.lce.LogCleanUpConfigurationUI"
+            name="Logging"
+            cleanUpKind="cleanUp" />
+
+      <cleanUpOptionsInitializer
+            class="me.aap.lce.LogCleanUpOptionsInitializer"
+            cleanUpKind="cleanUp" />
+      <cleanUpOptionsInitializer
+            class="me.aap.lce.LogCleanUpOptionsInitializer"
+            cleanUpKind="saveAction" />
+   </extension>
+
+   <extension
+         point="me.aap.lce.logFinder">
+
+      <!-- ___________________ Java Util Logger __________________ -->
+      <logFinder
+            class="me.aap.lce.jul.JulFinderFactory"
+            id="me.aap.lce.jul"
+            name="Java Util Logger">
+         <description>Add 'if' statements before Java Util Logger method calls</description>
+
+         <enabledPreview>final Logger log = Logger.getLogger("SampleLogger");</enabledPreview>
+
+         <option
+               id="FINEST"
+               name="FINEST">
+            <enabledPreview>
+log.finest("Simple message");
+if (log.isLoggable(Level.FINEST)) log.finest("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.finest("Simple message");
+log.finest("Complex message: " + this);
+            </disabledPreview>
+         </option>
+
+         <option
+               id="FINER"
+               name="FINER">
+            <enabledPreview>
+log.finer("Simple message");
+if (log.isLoggable(Level.FINER)) log.finer("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.finer("Simple message");
+log.finer("Complex message: " + this);
+            </disabledPreview>
+         </option>
+
+         <option
+               id="FINE"
+               name="FINE">
+            <enabledPreview>
+log.fine("Simple message");
+if (log.isLoggable(Level.FINE)) log.fine("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.fine("Simple message");
+log.fine("Complex message: " + this);
+            </disabledPreview>
+         </option>
+
+         <option
+               id="CONFIG"
+               name="CONFIG">
+            <enabledPreview>
+log.config("Simple message");
+if (log.isLoggable(Level.CONFIG)) log.config("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.config("Simple message");
+log.config("Complex message: " + this);
+            </disabledPreview>
+         </option>
+
+         <option
+               id="INFO"
+               name="INFO">
+            <enabledPreview>
+log.info("Simple message");
+if (log.isLoggable(Level.INFO)) log.info("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.info("Simple message");
+log.info("Complex message: " + this);
+            </disabledPreview>
+         </option>
+
+         <option
+               id="WARNING"
+               name="WARNING">
+            <enabledPreview>
+log.warning("Simple message");
+if (log.isLoggable(Level.WARNING)) log.warning("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.warning("Simple message");
+log.warning("Complex message: " + this);
+            </disabledPreview>
+         </option>
+
+         <option
+               id="SEVERE"
+               name="SEVERE">
+            <enabledPreview>
+log.severe("Simple message");
+if (log.isLoggable(Level.SEVERE)) log.severe("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.severe("Simple message");
+log.severe("Complex message: " + this);
+            </disabledPreview>
+         </option>
+      </logFinder>
+
+      <!-- _______________________ Log4J ____________________ -->
+      <logFinder
+            class="me.aap.lce.log4j.Log4jFinderFactory"
+            id="me.aap.lce.log4j"
+            name="Log4J">
+         <description>Add 'if' statements before Log4J method calls</description>
+
+         <enabledPreview>final Logger log = Logger.getLogger("SampleLogger");</enabledPreview>
+
+         <option
+               id="TRACE"
+               name="TRACE">
+            <enabledPreview>
+log.trace("Simple message");
+if (log.isTraceEnabled()) log.trace("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.trace("Simple message");
+log.trace("Complex message: " + this);
+            </disabledPreview>
+         </option>
+
+         <option
+               id="DEBUG"
+               name="DEBUG">
+            <enabledPreview>
+log.debug("Simple message");
+if (log.isDebugEnabled()) log.debug("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.debug("Simple message");
+log.debug("Complex message: " + this);
+            </disabledPreview>
+         </option>
+
+         <option
+               id="INFO"
+               name="INFO">
+            <enabledPreview>
+log.info("Simple message");
+if (log.isInfoEnabled()) log.info("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.info("Simple message");
+log.info("Complex message: " + this);
+            </disabledPreview>
+         </option>
+
+         <option
+               id="WARN"
+               name="WARN">
+            <enabledPreview>
+log.warn("Simple message");
+if (log.isEnabledFor(Level.WARN)) log.warn("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.warn("Simple message");
+log.warn("Complex message: " + this);
+            </disabledPreview>
+         </option>
+
+         <option
+               id="ERROR"
+               name="ERROR">
+            <enabledPreview>
+log.error("Simple message");
+if (log.isEnabledFor(Level.ERROR)) log.error("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.error("Simple message");
+log.error("Complex message: " + this);
+            </disabledPreview>
+         </option>
+
+         <option
+               id="FATAL"
+               name="FATAL">
+            <enabledPreview>
+log.fatal("Simple message");
+if (log.isEnabledFor(Level.FATAL)) log.fatal("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.fatal("Simple message");
+log.fatal("Complex message: " + this);
+            </disabledPreview>
+         </option>
+      </logFinder>
+
+        <!-- _______________________ SLF4J ____________________ -->
+      <logFinder
+            class="me.aap.lce.slf4j.Slf4jFinderFactory"
+            id="me.aap.lce.slf4j"
+            name="SLF4J">
+         <description>Add 'if' statements before SLF4J method calls</description>
+
+         <enabledPreview>final Logger log = LoggerFactory.getLogger("SampleLogger");</enabledPreview>
+
+         <option
+               id="TRACE"
+               name="TRACE">
+            <enabledPreview>
+log.trace("Simple message");
+if (log.isTraceEnabled()) log.trace("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.trace("Simple message");
+log.trace("Complex message: " + this);
+            </disabledPreview>
+         </option>
+
+         <option
+               id="DEBUG"
+               name="DEBUG">
+            <enabledPreview>
+log.debug("Simple message");
+if (log.isDebugEnabled()) log.debug("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.debug("Simple message");
+log.debug("Complex message: " + this);
+            </disabledPreview>
+         </option>
+
+         <option
+               id="INFO"
+               name="INFO">
+            <enabledPreview>
+log.info("Simple message");
+if (log.isInfoEnabled()) log.info("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.info("Simple message");
+log.info("Complex message: " + this);
+            </disabledPreview>
+         </option>
+
+         <option
+               id="WARN"
+               name="WARN">
+            <enabledPreview>
+log.warn("Simple message");
+if (log.isWarnEnabled()) log.warn("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.warn("Simple message");
+log.warn("Complex message: " + this);
+            </disabledPreview>
+         </option>
+
+         <option
+               id="ERROR"
+               name="ERROR">
+            <enabledPreview>
+log.error("Simple message");
+if (log.isErrorEnabled()) log.error("Complex message: " + this);
+            </enabledPreview>
+            <disabledPreview>
+log.error("Simple message");
+log.error("Complex message: " + this);
+            </disabledPreview>
+         </option>
+      </logFinder>
+   </extension>
+
+</plugin>

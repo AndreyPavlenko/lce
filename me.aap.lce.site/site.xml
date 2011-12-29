@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/me.aap.lce.feature_1.0.1.jar" id="me.aap.lce.feature" version="1.0.1"/>
+</site>

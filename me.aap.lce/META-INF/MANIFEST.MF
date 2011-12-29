@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Logging code Cleanup for Eclipse
+Bundle-SymbolicName: me.aap.lce;singleton:=true
+Bundle-Version: 1.0.1
+Bundle-Vendor: Andrey Pavlenko
+Bundle-RequiredExecutionEnvironment: J2SE-1.4
+Export-Package: me.aap.lce
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: me.aap.lce.LogCleanUpPlugin
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.core.manipulation,
+ org.eclipse.jdt.ui,
+ org.eclipse.ltk.core.refactoring,
+ org.eclipse.swt,
+ org.eclipse.text,
+ org.eclipse.ui.workbench
