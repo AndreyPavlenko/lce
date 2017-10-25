@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Logging code Cleanup for Eclipse
 Bundle-SymbolicName: me.aap.lce;singleton:=true
-Bundle-Version: 1.0.1
+Bundle-Version: 1.0.2
 Bundle-Vendor: Andrey Pavlenko
 Bundle-RequiredExecutionEnvironment: J2SE-1.4
 Export-Package: me.aap.lce
