@@ -16,6 +16,7 @@ The following logging frameworks are supported:
 Java Util Logging
 Log4j
 SLF4J
+Apache Commons Logging
 
 The plugin provides an extension point which allows to add support 
 for other frameworks.
